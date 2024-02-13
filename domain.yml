@@ -1,0 +1,44 @@
+version: '3.1'
+intents:
+- affirm
+- bot_ask
+- bot_challenge
+- deny
+- give_email
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- question_php_py
+entities:
+- email
+slots:
+  attribute:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: email
+responses:
+  utter_greet:
+  - text: Hi! How are you today?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I'm a bot.
+  utter_sorry:
+  - text: I can't speak Spanish.
+  utter_python_vs_php:
+  - text: Python is better than PHP, of course!
+actions:
+- utter_greet
+- action_email
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
